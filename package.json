@@ -1,0 +1,13 @@
+{
+  "name": "jenkins-k8s-demo",
+  "version": "1.0.0",
+  "description": "Minimal app for practicing Jenkins CI/CD pipelines with Kubernetes deployment",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"placeholder: no real tests yet\" && exit 0"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
