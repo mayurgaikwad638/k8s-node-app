@@ -40,7 +40,7 @@ pipeline {
                     branch 'main'
                 }
                         steps {
-        withCredentials([file(credentialsId: 'kind-cluster-config', variable: 'KUBECONFIG')]) {
+        withCredentials([file(credentialsId: 'kind-config', variable: 'KUBECONFIG')]) {
             sh '''
                 sed -e "s|IMAGE_PLACEHOLDER|$IMAGE_NAME:$IMAGE_TAG|g" \
                     -e "s|BUILD_NUMBER_PLACEHOLDER|$BUILD_NUMBER|g" \
