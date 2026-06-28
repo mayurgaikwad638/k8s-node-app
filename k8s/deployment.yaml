@@ -22,7 +22,7 @@ spec:
             - containerPort: 3000
           env:
             - name: APP_VERSION
-              value: BUILD_NUMBER_PLACEHOLDER
+              value: "BUILD_NUMBER_PLACEHOLDER"
           readinessProbe:
             httpGet:
               path: /healthz/ready
