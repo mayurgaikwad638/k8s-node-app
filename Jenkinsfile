@@ -3,8 +3,8 @@ pipeline {
 
         environment {
             DOCKERHUB_USERNAME = 'kubemayurr'
-            IMAGE_NAME = 'kubemayurr:myapp' 
-            IMAGE_TAG = '${BUILD_NUMBER}'
+            IMAGE_NAME = 'kubemayurr/myapp' 
+            IMAGE_TAG = "${BUILD_NUMBER}"
 
         }
 
@@ -24,7 +24,7 @@ pipeline {
 
             stage('push to dockerhub'){
                 steps{
-                    withcredentials([usernamePassword(
+                    withCredentials([usernamePassword(
                         credentialsId : 'docker-cred',
                         usernameVariable: 'docker_user',
                         passwordVariable: 'docker_pass'
@@ -51,9 +51,12 @@ pipeline {
                 kubectl rollout status deployment/demo-app -n default
             '''
         }
-                    
+                        }
             }
-        }
+        }    
+                    
+            
+        
     post {
         success {
             echo "Pipeline completed successfully — image $IMAGE_NAME:$IMAGE_TAG"
@@ -61,6 +64,8 @@ pipeline {
         failure {
             echo "Pipeline failed — check console output above for the failing stage"
         }
-    }  
+    }
+    
 }
-}
+
+
