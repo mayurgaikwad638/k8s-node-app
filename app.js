@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 // Main page - shows it's alive and which build/version is running
 app.get('/', (req, res) => {
   res.json({
-    message: 'Hello from Jenkins + Kubernetes demo app!',
+    message: 'Hello from Jenkins + Kubernetes demo app! + CI/CD',
     version: process.env.APP_VERSION || 'dev',
     hostname: require('os').hostname()
   });
